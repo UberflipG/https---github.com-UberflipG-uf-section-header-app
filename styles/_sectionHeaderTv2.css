@@ -1,0 +1,18 @@
+/* Section Header */
+.uf-main-content .uf-item-tile:not(.cta):not(.list).section-header-tile {
+  display: block;
+  width: 100%;
+  background-color: var(--uf-section-header-background-color) !important;
+}
+.uf-main-content .uf-item-tile:not(.cta):not(.list).section-header-tile .title {
+  color: var(--uf-section-header-font-color) !important;
+  font: var(--uf-section-header-font) !important;
+  /* Temporary */
+  line-height: 1.5 !important;
+  padding-left: 0.5rem !important;
+}
+
+/* Hide Section Headers in other content */
+#uf-slider-tiles-list .section-header-tile {
+  display: none;
+}

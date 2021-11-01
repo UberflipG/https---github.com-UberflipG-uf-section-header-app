@@ -1,0 +1,15 @@
+/*
+   Tv1 CSS
+*/
+.section-header-tile {
+  color: var(--uf-section-header-font-color) !important;
+  background-color: var(--uf-section-header-background-color) !important;
+
+  width: 100%;
+  line-height: 1.5;
+  height: fit-content;
+}
+.section-header-tile .h3like {
+  margin: 15px;
+  font: var(--uf-section-header-font) !important;
+}

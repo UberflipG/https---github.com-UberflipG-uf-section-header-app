@@ -1,0 +1,102 @@
+  
+{
+    "account_code_blocks": 
+    [
+    {
+        "code": "_SAMPLE_MANIFEST",
+        "name": "sample_manifest",
+        "content": "<script type=\"text\/javascript\" data-functionality-name=\"uf-section-header\"> console.log('**SAMPLE MANIFEST OUTPUT TEST**'); console.log('Stream IDs: {{stream_ids}}'); console.log('font_color: {{font_color}}'); console.log('section_header_background_color: {{section_header_background_color}}');  console.log('font_properties: {{font_properties}}') ;console.log('Debug Example: {{debug_mode}}'); </script>",
+        "placement_code": "BODY_BOTTOM",
+        "description": "This is a sample manifest outputting fields to the console"
+    },
+    {
+        "code": "_APP_STARTUP_JS",
+        "name": "app_startup_js",
+        "content": "<script type=\"text\/javascript\" data-functionality-name=\"uf-section-header\">if (window.ufstreamsectionapp === undefined) {\r\n  window.ufstreamsectionapp =  {};\r\n}\r\n\r\n  if (window.ufstreamsectionapp.getScriptSource === undefined) {\r\n  window.ufstreamsectionapp.getScriptSource = () => {\r\n\r\n  console.log('getScriptSource');\r\n\r\n  var themeCheck = document.body.dataset.domainTheme;\r\n\r\n  \/* Print App Configuration in debug mode *\/\r\n\r\n  if (themeCheck === undefined) {\r\n    console.log('Tv1 Detected');\r\n\r\n    return ('https:\\\/\\\/uberflip-successteam.s3.amazonaws.com\\\/sapirg\\\/_sectionHeaderTv1.js');\r\n\r\n  } else {\r\n    console.log('Tv2 Detected');\r\n\r\n    return ('https:\\\/\\\/uberflip-successteam.s3.amazonaws.com\\\/sapirg\\\/_sectionHeaderTv2.js');\r\n  }\r\n  }; \r\n}\r\n\r\n  window.ufstreamsectionapp.sectionHeaderStreamArray = [{{stream_ids}}];\r\n  window.ufstreamsectionapp.debug_mode = {{debug_mode}};\r\n\r\n  const sectionHeaderScript = document.createElement('script');\r\n  sectionHeaderScript.id = 'sectionHeaderScript';\r\n  sectionHeaderScript.type='text\/javascript';\r\n  sectionHeaderScript.async = true;\r\n  sectionHeaderScript.src =  window.ufstreamsectionapp.getScriptSource();\r\n  document.body.appendChild(sectionHeaderScript);\r\n\r\n  sectionHeaderScript.onload = function() {\r\n    console.log('sectionHeaderScript.onload');\r\n    window.ufstreamsectionapp.sectionHeaderInit();\r\n  }</script>",
+        "placement_code": "BODY_BOTTOM",
+        "description": "This is the script that runs the section header code by loading correct version files"
+    },
+    {
+        "code": "_APP_SECTION_HEADER_CSS_VARIABLES",
+        "name": "app_section_header_css_variables",
+        "content": "<style data-functionality-name=\"uf-section-header\">:root{--uf-section-header-font-color:{{font_color}}!important;--uf-section-header-background-color:{{section_header_background_color}}!important;--uf-section-header-font:{{font_properties}}!important}</style>",
+        "placement_code": "HEAD",
+        "description": "This is the stylesheet with CSS variables from the configuration"
+    },
+    {
+        "code": "_APP_SECTION_HEADER_CSS_TV1",
+        "name": "app_section_header_css_tv1",
+        "content": "<style data-functionality-name=\"uf-section-header\">.section-header-tile{color:var(--uf-section-header-font-color)!important;background-color:var(--uf-section-header-background-color)!important;width:100%;line-height:1.5;height:fit-content}.section-header-tile .h3like{margin:15px;font:var(--uf-section-header-font)!important}</style>",
+        "placement_code": "HEAD",
+        "description": "This is the stylesheet with CSS to handle Tv1 layout"
+    },
+    {
+        "code": "_APP_SECTION_HEADER_CSS_TV2",
+        "name": "app_section_header_css_tv2",
+        "content": "<style data-functionality-name=\"uf-section-header\">.uf-main-content .uf-item-tile:not(.cta):not(.list).section-header-tile{display:block;width:100%;background-color:var(--uf-section-header-background-color)!important}.uf-main-content .uf-item-tile:not(.cta):not(.list).section-header-tile .title{color:var(--uf-section-header-font-color)!important;font:var(--uf-section-header-font)!important;line-height:1.5!important;padding-left:.5rem!important}#uf-slider-tiles-list .section-header-tile{display:none}</style>",
+        "placement_code": "HEAD",
+        "description": "This is the stylesheet with CSS to handle Tv2 layout"
+    }
+    ],
+    "config_fields": 
+    [
+    {
+        "code": "_STREAM_IDS",
+        "name": "stream_ids",   
+        "label": "Stream IDs",
+        "ordinal": 0,
+        "category": "integrations",
+        "control_type": "textbox",
+        "scopes": ["hub","stream"],
+        "description": "Comma separated list of all section header streams",
+        "control_props":
+        {
+            "placeholder": "Example textbox placeholder"
+        }
+    },
+    {
+        "code": "_FONT_COLOR",
+        "name": "font_color",   
+        "label": "Font Color",
+        "ordinal": 1,
+        "category": "integrations",
+        "control_type": "color_picker",
+        "scopes": ["hub","stream"],
+        "description": "Font color for section header",
+        "default_value": "#000000"
+    },
+    {
+        "code": "_SECTION_HEADER_BACKGROUND_COLOR",
+        "name": "section_header_background_color",   
+        "label": "Background Color",
+        "ordinal": 2,
+        "category": "integrations",
+        "control_type": "color_picker",
+        "scopes": ["hub","stream"],
+        "description": "Background color for section header",
+        "default_value": "#FFFFFF"
+
+    },
+    {
+        "code": "_FONT_PROPERTIES",
+        "name": "font_properties",   
+        "label": "Font Properties",
+        "ordinal": 3,
+        "category": "integrations",
+        "control_type": "textbox",
+        "scopes": ["hub","stream"],
+        "description": "Font properties ",
+        "default_value": "900 24px comic sans, Helvetica, sans-serif"
+    },
+    {
+        "code": "_DEBUG_MODE",
+        "name": "debug_mode",   
+        "label": "Debug Mode for Developers",
+        "ordinal": 99,
+        "category": "integrations",
+        "control_type": "toggle",
+        "scopes": ["hub","stream"],
+        "description": "For developer debugging purposes, when enabled check the console logs for detailed info on the operation of this app." 
+    }
+    ]
+}

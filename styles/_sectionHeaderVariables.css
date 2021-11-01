@@ -1,0 +1,7 @@
+/* Settings usage */
+:root
+{
+--uf-section-header-font-color: {{ font_color }} !important;
+--uf-section-header-background-color: {{ section_header_background_color}} !important;
+--uf-section-header-font: {{ font_properties }} !important;
+}
