@@ -3,9 +3,11 @@
 This app is used to create setion headers inside of content stream
 
 <h2>Pre Requiesites</h2>
-1. new blog stream for stream content headers that uses title as the text
-2. each item should use canonical URL that includes  "stream-section-headers" as part of path
-3. set up "Auto redirect to Item's Canonical URL" for each item
+<ol>
+  <li> new blog stream for stream content headers that uses title as the text</li>
+<li> each item should use canonical URL that includes  "stream-section-headers" as part of path</li>
+<li> set up "Auto redirect to Item's Canonical URL" for each item</li>
+</ol>
 
 Multiple stream are supported 
 
