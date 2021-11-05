@@ -19,10 +19,11 @@ App Configuration available
 Section header tile is streched across full width of stream
 
 <h3>Item View</h3>
-1. Hide section header item in recommend list
-2. Hide section header items in related content
-3. Hide section header items in next\previous view
-
+<ol>
+  <li>Hide section header item in recommend list</li>
+<li>Hide section header items in related content</li>
+<li>Hide section header items in next\previous view</li>
+</ol>
 
 
 
